@@ -61,12 +61,12 @@ const theme = createTheme({
     h4: {
       fontSize: '1rem',
       color: text['dark'],
-      fontWeight: 400,
+      fontWeight: 700,
     },
     h3: {
       fontSize: '1.25rem',
       color: text['dark'],
-      fontWeight: 400,
+      fontWeight: 700,
       // '@media (min-width:600px)': {
       //   fontSize: '1.5rem',
       // },
@@ -86,7 +86,7 @@ const theme = createTheme({
     },
     subtitle1: {
       fontSize: '0.875rem',
-      fontWeight: 400,
+      fontWeight: 700,
       color: text['main'],
     },
     subtitle2: {

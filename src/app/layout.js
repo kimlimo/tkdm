@@ -2,6 +2,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ptSerif } from './ui/fonts';
 import theme from './ui/theme';
 import Header from './ui/header';
+import Footer from './ui/footer';
 
 export const metadata = {
   title: 'TKDM',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
           <CssBaseline />
           <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
