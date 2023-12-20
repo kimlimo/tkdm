@@ -27,7 +27,7 @@ const primary = {
 };
 
 const secondary = {
-  main: '387C2B',
+  main: '#387C2B',
   dark: '#245d1a',
   light: '#88c67e',
   contrastText: '#fff',
@@ -48,6 +48,7 @@ const theme = createTheme({
     grey,
   },
   typography: {
+    fontFamily: 'inherit',
     h6: {
       fontWeight: 400,
       color: text['dark'],
@@ -80,7 +81,7 @@ const theme = createTheme({
       fontWeight: 700,
     },
     h1: {
-      fontSize: '2.125rem',
+      fontSize: '56px',
       color: text['dark'],
       fontWeight: 700,
     },
