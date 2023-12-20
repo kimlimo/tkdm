@@ -11,12 +11,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={ptSerif.className}>
+    <html lang="en" style={{ height: '100%' }}>
+      <body className={ptSerif.className} style={{ height: '100%' }}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />
-          {children}
+          <main style={{ height: '100%' }}>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

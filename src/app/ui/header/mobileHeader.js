@@ -28,7 +28,7 @@ export default function MobileHeader() {
       ) : (
         <>
           <MobileMenu {...disclosure} />
-          <NewsSearch />
+          {/* <NewsSearch /> */}
         </>
       )}
     </Grid>

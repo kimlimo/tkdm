@@ -1,7 +1,6 @@
 'use client';
 import {
   Box,
-  Button,
   Divider,
   Grid,
   List,
@@ -11,6 +10,7 @@ import {
   Stack,
   Typography,
   useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import { navItems } from '../header/mainHeader';
 import Logo from '../logo';
@@ -20,6 +20,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import config from '@/config';
 import Link from 'next/link';
+import Button from '../components/button';
 
 const socialMedia = [
   {
@@ -44,7 +45,7 @@ const socialMedia = [
   },
 ];
 
-export function FooterLinks() {
+export function FooterLinks({ match }) {
   const theme = useTheme();
   return (
     <Grid container justifyContent="space-between" alignItems="center">
@@ -70,14 +71,44 @@ export function FooterLinks() {
           </Stack>
         </Stack>
       </Grid>
-      <Grid item xs={12} py={2}>
+      <Grid
+        item
+        xs={12}
+        py={2}
+        sx={{
+          display: match ? 'flex' : 'none',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '10px',
+        }}
+      >
+        <OuterLink href="#" sx={{ textDecoration: 'none', color: 'text.main' }}>
+          Privacy Policy
+        </OuterLink>
+        <Typography variant="subtitle2">
+          &copy;{new Date().getFullYear()}&nbsp;
+          {config.brand}. All rights reserved
+        </Typography>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        py={2}
+        sx={{ display: match ? 'none' : 'flex', justifyContent: 'center' }}
+      >
         <Stack direction="row" justifyContent="center" spacing={1}>
           <Typography variant="subtitle2">
-            &copy;{new Date().getFullYear()}
+            &copy;{new Date().getFullYear()}&nbsp;
             {config.brand}. All rights reserved
           </Typography>
-          <Divider orientation="vertical" />
-          <Link href="#">Privacy Policy</Link>
+          <Divider orientation="vertical" sx={{ height: '22px' }} />
+          <OuterLink
+            href="#"
+            sx={{ textDecoration: 'none', color: 'text.main' }}
+          >
+            Privacy Policy
+          </OuterLink>
         </Stack>
       </Grid>
     </Grid>
@@ -86,9 +117,22 @@ export function FooterLinks() {
 
 export default function MainFooter() {
   const theme = useTheme();
+  const matchXS = useMediaQuery('(max-width:480px)');
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} sx={{ backgroundColor: theme.palette.grey[200] }}>
+    <Grid
+      container
+      spacing={3}
+      sx={{ position: matchXS ? 'fixed' : 'relative', bottom: 0 }}
+    >
+      <Grid
+        item
+        xs={12}
+        sx={{
+          backgroundColor: theme.palette.grey[200],
+          pb: 1,
+          display: matchXS ? 'none' : 'block',
+        }}
+      >
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h3">{config.brand}</Typography>
           <Stack direction="row" spacing={1}>
@@ -98,11 +142,19 @@ export default function MainFooter() {
           </Stack>
         </Stack>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} sx={{ display: matchXS ? 'none' : 'flex' }}>
         <FooterItems />
       </Grid>
+      <Grid
+        item
+        xs={12}
+        sx={{ display: matchXS ? 'flex' : 'none', justifyContent: 'center' }}
+      >
+        <Button variant="outlined">back to top</Button>
+      </Grid>
+
       <Grid item xs={12}>
-        <FooterLinks />
+        <FooterLinks match={matchXS} />
       </Grid>
     </Grid>
   );
@@ -114,7 +166,7 @@ function FooterItems() {
   const adsItems = ['Advertising', 'Advertising Packages'];
   const moreItems = ['About Us', 'News Archive', 'Register'];
   return (
-    <Grid container spacing={3} justifyContent="space-evenly">
+    <Grid container spacing={3} justifyContent="space-between">
       <Grid item zeroMinWidth>
         <List>
           <ListItemButton>

@@ -38,7 +38,7 @@ export default function MainHeader() {
           {item}
         </Grid>
       ))}
-      <NewsSearch />
+      {/* <NewsSearch /> */}
     </Grid>
   );
 }

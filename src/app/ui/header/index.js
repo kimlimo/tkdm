@@ -6,7 +6,7 @@ import Logo from '../logo';
 
 export default function Header() {
   const theme = useTheme();
-  const matchXS = useMediaQuery('(max-width:480px)');
+  const matchXS = useMediaQuery('(max-width:600px)');
   const matchLg = useMediaQuery(theme.breakpoints.up('sm'));
   return (
     <Grid container spacing={3}>
