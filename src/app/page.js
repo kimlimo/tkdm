@@ -1,10 +1,5 @@
-'use client'
-import { Grid, Typography } from '@mui/material'
+import Login from './(auth)/login';
 
-export default function Home() {
-  return (
-    <Grid>
-      <Typography variant='h3'>Home</Typography>
-    </Grid>
-  )
+export default function Page() {
+  return <Login />;
 }
