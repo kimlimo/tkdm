@@ -6,9 +6,10 @@ export default function Button({
   sx,
   variant = 'text',
   color = 'text',
+  ...rest
 }) {
   return (
-    <Btn variant={variant} color={color} size="small" sx={sx}>
+    <Btn variant={variant} color={color} size="small" sx={sx} {...rest}>
       {children}
     </Btn>
   );

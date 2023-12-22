@@ -18,7 +18,7 @@ export default function TextField({
     <Controller
       name={name}
       control={control}
-      defaultValue=""
+      defaultValue={others?.defaultValue || ''}
       render={({ field, fieldState }) => (
         <>
           <TextInput
